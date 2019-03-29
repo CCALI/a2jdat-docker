@@ -1,3 +1,32 @@
+# CALI A2JDAT Docker project
+This is an *experimental* Dockerized version of the A2JDAT
+https://github.com/CCALI/A2JDAT/. This project dockerizes version 2.0.0 of the DAT.  It includes wkhtmltopdf, node 8.9.4, and the CALI DAT source.
+
+NOTE: By downloading this application, you are agreeing to the terms included in the user license [LICENSE.md](https://github.com/CCALI/A2JDAT/blob/master/LICENSE.md).
+
+
+## Requirements
+Docker 18
+
+### Built on
+Built with docker 18.09 on Mac High Sierra.
+
+## Config Notes
+you must modify `config.json` to match your system either before you build or with a `docker image cp` or building a derived image that replaces `config.json`
+
+## Building
+download this repo and navigate to that location in a terminal.
+Then run `docker compose build . -t dat`
+
+## Running
+You can run with docker compose as demonstrated in a2jdocker or run stand alone with `docker run -p 3000:3000 -d dat`. You can test the dat by sending ports to port 3000.
+
+## More info
+
+To find out more about A2J Viewer, A2J DAT, and A2J Author® please see our website, [www.a2jauthor.org](https://www.a2jauthor.org/)
+
+For questions, contact Tobias Nteireho at tobias@cali.org
+
 # A2JDAT
 
 This repo hosts the distributable production version of the A2J Document Assembly Tool (DAT). The document assembly tool is an optional piece of software used for producing pdf documents at the end of interviews. It requires the A2Jviewer, wkhtmltopdf and nodejs 6+ to run properly. The recommended additional tools for windows are nvm and iisnode. The recommended additional tools for \*nix servers are nvm and pm2.
@@ -57,7 +86,7 @@ https://github.com/git-for-windows/git/releases/download/v2.16.2.windows.1/Git-2
 The node sub-dependencies for the DAT must be built locally on the target system and requires build tools for languages other than node. Run the command below to install the necessary build tools:
 
 ##### For windows
-use the command below to install 
+use the command below to install
 ```npm --add-python-to-path='true' --debug install --global windows-build-tools```
 
 This requires administrator access. This is a very lengthy install-  it can take over an hour even on a fast connection.
@@ -102,7 +131,7 @@ if you encounter an error in this step it can often be resolved by deleting node
 Since the A2J software can run on many platforms, there is a small amount of platform specific configuration that is necessary. Navigate to the root of the DAT in your websites folder. Open config.json
 
 The Most important keys are:
-SERVER_URL- required to establish target endpoints for API 
+SERVER_URL- required to establish target endpoints for API
 GUIDES_DIR-  required to establish location of templates  
 GUIDES_URL- relative web location of guides  
 WKHTMLTOPDF_PATH- path to binary of WKHTMLTOPDF  
